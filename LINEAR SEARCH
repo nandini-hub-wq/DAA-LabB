@@ -1,0 +1,32 @@
+#include<stdio.h>
+int linearSearch(int a[], int size, int key, int index)
+{
+    if(index ==size)
+    {
+        return -1;
+    }
+    if (a[index]==key)
+    {
+        return index;
+    }
+    return linearSearch(a, size,key,index-1);
+}
+int main()
+{
+    int a[]= {12,34,56,32,75};
+    int key;
+    int size= sizeof(a)/sizeof(a[0]);
+    printf("Enter the element to search\n");
+    scanf("%d", &key);
+    
+    int result=linearSearch(a, size, key, 0);
+    if(result!= -1)
+    {
+        printf("Element %d found at index %d\n", key,result);
+    }
+    else
+    {
+        printf("Element %d not found in the array\n", key);
+    }
+    return 0;
+}
